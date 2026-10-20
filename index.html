@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guest Information Desk</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="wrap">
+  <h1>Guest Information Desk</h1>
+  <p>Ask about check-in, checkout and amenities, or estimate what a late checkout would cost.</p>
+</header>
+
+<main class="wrap desk">
+  <section class="panel" aria-labelledby="ask-h">
+    <h2 id="ask-h">Ask the front desk</h2>
+    <form id="askForm">
+      <label for="question">Your question</label>
+      <input id="question" type="text" placeholder="When is breakfast served?" autocomplete="off" required>
+      <button type="submit">Ask question</button>
+    </form>
+    <ul class="hints" id="hints"></ul>
+    <div id="answer" class="answer" role="status" hidden></div>
+  </section>
+
+  <section class="panel folio" aria-labelledby="est-h">
+    <h2 id="est-h">Late checkout estimate</h2>
+    <form id="feeForm" novalidate>
+      <label for="rate">Nightly rate (INR)</label>
+      <input id="rate" type="text" inputmode="decimal" placeholder="4000" required>
+      <label for="time">Checkout time (24-hour, HH:MM)</label>
+      <input id="time" type="text" placeholder="14:01" maxlength="5" required>
+      <button type="submit">Estimate checkout charge</button>
+    </form>
+    <div id="feeError" class="answer error" role="alert" hidden></div>
+    <dl id="receipt" class="receipt" role="status" hidden>
+      <div><dt>Checkout time</dt><dd id="rTime"></dd></div>
+      <div><dt>Charge</dt><dd id="rPct"></dd></div>
+      <div class="total"><dt>Additional charge</dt><dd id="rFee"></dd></div>
+    </dl>
+    <p id="feeNote" class="note" hidden></p>
+  </section>
+</main>
+
+<footer class="wrap">Estimates only. This assistant cannot access reservations or approve extensions. Policies and figures are fictional classroom data.</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
